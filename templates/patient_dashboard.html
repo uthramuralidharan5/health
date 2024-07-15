@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Dashboard</title>
+</head>
+<body>
+    <h1>Patient Dashboard</h1>
+    <h2>Medical History</h2>
+    <ul>
+        {% for history in medical_history %}
+            <li>{{ history.diagnosis }} ({{ history.created_at }})</li>
+        {% endfor %}
+    </ul>
+    <h2>Appointments</h2>
+    <ul>
+        {% for appointment in appointments %}
+            <li>{{ appointment.date }} ({{ appointment.time }}) with {{ appointment.doctor.name }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Bills</h2>
+    <ul>
+        {% for bill in bills %}
+            <li>{{ bill.amount }} ({{ bill.payment_status }})</li>
+        {% endfor %}
+    </ul>
+    <h2>Insurance</h2>
+    <ul>
+        {% for insurance in insurance %}
+            <li>{{ insurance.insurance_provider }} ({{ insurance.policy_number }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Facility Management</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Department</th>
+      <th>Resources</th>
+      <th>Actions</th>
+    </tr>
+    {% for facility in facilities %}
+    <tr>
+      <td>{{ facility.name }}</td>
+      <td>{{ facility.location }}</td>
+      <td>{{ facility.department }}</td>
+      <td>{{ facility.resources }}</td>
+      <td>
+        <a href="{% url 'update_facility' facility.id %}">Edit</a>
+        <a href="{% url 'delete_facility' facility.id %}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'create_facility' %}">Create New Facility</a>
+{% endblock %}

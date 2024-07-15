@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Patient Management</h1>
+  <ul>
+    {% for patient in patients %}
+      <li>
+        {{ patient.first_name }} {{ patient.last_name }} ({{ patient.date_of_birth }})
+        <a href="{% url 'doctor_view_patient' patient.id %}">View Patient</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

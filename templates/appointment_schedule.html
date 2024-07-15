@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Appointment Schedule</h1>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Patient</th>
+      <th>Status</th>
+    </tr>
+    {% for appointment in appointments %}
+      <tr>
+        <td>{{ appointment.appointment_date }}</td>
+        <td>{{ appointment.appointment_time }}</td>
+        <td>{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</td>
+        <td>{{ appointment.appointment_status }}</td>
+        <td><a href="{% url 'doctor_view_appointment' appointment.id %}">View</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
