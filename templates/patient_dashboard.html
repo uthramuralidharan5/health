@@ -1,33 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Patient Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Patient Dashboard</h1>
-    <h2>Medical History</h2>
-    <ul>
-        {% for history in medical_history %}
-            <li>{{ history.diagnosis }} ({{ history.created_at }})</li>
-        {% endfor %}
-    </ul>
-    <h2>Appointments</h2>
-    <ul>
-        {% for appointment in appointments %}
-            <li>{{ appointment.date }} ({{ appointment.time }}) with {{ appointment.doctor.name }}</li>
-        {% endfor %}
-    </ul>
-    <h2>Bills</h2>
-    <ul>
-        {% for bill in bills %}
-            <li>{{ bill.amount }} ({{ bill.payment_status }})</li>
-        {% endfor %}
-    </ul>
-    <h2>Insurance</h2>
-    <ul>
-        {% for insurance in insurance %}
-            <li>{{ insurance.insurance_provider }} ({{ insurance.policy_number }})</li>
-        {% endfor %}
-    </ul>
+  <div class="container">
+    <h1>Welcome to Your Patient Dashboard</h1>
+    <div class="row">
+      <!-- Patient Registration -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Patient Registration</h5>
+            <p class="card-text">Register as a new patient.</p>
+            <a href="patient_register.html" class="btn btn-primary">Go to Registration</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appointment Booking -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Appointment Booking</h5>
+            <p class="card-text">Book your medical appointments.</p>
+            <a href="appointment_booking.html" class="btn btn-primary">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medical History -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Medical History</h5>
+            <p class="card-text">View and update your medical history.</p>
+            <a href="medical_history.html" class="btn btn-primary">View Medical History</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Billing -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Billing</h5>
+            <p class="card-text">View billing.</p>
+            <a href="billing.html" class="btn btn-primary">View Billing</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Payments</h5>
+            <p class="card-text">Make Payments.</p>
+            <a href="payment.html" class="btn btn-primary">Make Payments</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Education Resource -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Health Education Resource</h5>
+            <p class="card-text">View health resources.</p>
+            <a href="health_education_resource.html" class="btn btn-primary">View Health Resources</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

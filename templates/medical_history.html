@@ -1,14 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Medical History</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical History</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    .container {
+      max-width: 800px;
+      margin-top: 20px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Medical History</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Medical History</button>
-    </form>
+  <div class="container">
+    <h1>Medical History for <span id="patientName"></span></h1>
+
+    <!-- Patient Information Card -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Patient Information</h5>
+        <ul>
+          <li><strong>Name:</strong> <span id="patientName"></span></li>
+          <li><strong>Diagnosis:</strong> <span id="diagnosis"></span></li>
+          <li><strong>Medications:</strong> <span id="medications"></span></li>
+          <li><strong>Allergies:</strong> <span id="allergies"></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Treatment History Card -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Treatment History</h5>
+        <ul id="treatmentHistory">
+          <!-- Dynamic content for treatment history will be added here -->
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Add more cards or sections as needed -->
+
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Example JavaScript to populate patient information and treatment history
+    document.addEventListener('DOMContentLoaded', function() {
+      // Replace with actual patient data from your backend or session storage
+      let patientData = {
+        name: "Raji",
+        diagnosis: "Hypertension",
+        medications: "Lisinopril, Amlodipine",
+        allergies: "Penicillin",
+        treatmentHistory: [
+          { date: "2023-01-15", treatment: "Started Lisinopril for hypertension." },
+          { date: "2023-02-05", treatment: "Increased dosage of Amlodipine." }
+          // Add more treatment history entries as needed
+        ]
+      };
+
+      // Populate patient information
+      document.getElementById('patientName').textContent = patientData.name;
+      document.getElementById('diagnosis').textContent = patientData.diagnosis;
+      document.getElementById('medications').textContent = patientData.medications;
+      document.getElementById('allergies').textContent = patientData.allergies;
+
+      // Populate treatment history
+      let treatmentHistoryHtml = '';
+      patientData.treatmentHistory.forEach(function(entry) {
+        treatmentHistoryHtml += `<li><strong>${entry.date}:</strong> ${entry.treatment}</li>`;
+      });
+      document.getElementById('treatmentHistory').innerHTML = treatmentHistoryHtml;
+    });
+  </script>
 </body>
 </html>

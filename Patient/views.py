@@ -58,22 +58,6 @@ def payment(request):
         form = PaymentForm()
     return render(request, 'payment.html', {'form': form})
 
-def insurance(request):
-    if request.method == 'POST':
-        form = InsuranceForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('insurance_success')
-    else:
-        form = InsuranceForm()
-    return render(request, 'insurance.html', {'form': form})
-
-def patient_dashboard(request):
-    medical_history = MedicalHistory.objects.filter(patient=request.user)
-    appointments = Appointment.objects.filter(patient=request.user)
-    bills = Bill.objects.filter(appointment__in=appointments)
-    insurance = Insurance.objects.filter(patient=request.user)
-    return render(request, 'patient_dashboard.html', {'medical_history': medical_history, 'appointments': appointments, 'bills': bills, 'insurance': insurance})
 
 def health_education_resources(request):
-    return render(request, 'health_education_resources.html')
+    return render(request, 'health_education_resource.html')

@@ -1,64 +1,75 @@
-<!-- admin_dashboard.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>E-Hospitality - Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">E-Hospitality</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:user_management' %}">User Management</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:facility_management' %}">Facility Management</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:appointment_management' %}
-        </li>
-      </ul>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">E-Hospitality</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user_management.html">Manage Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="facility_management.html">Manage Facility</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="appointment_management.html">Manage Appointments</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-  <div class="container">
-    <h1>Admin Dashboard</h1>
-    <div class="row">
+
+  <div class="container mt-4">
+    <h1>Welcome, Admin!</h1>
+    <p>This is your dashboard. You can manage facilities, users, and appointments.</p>
+    
+    <!-- Cards for Additional Functionality -->
+    <div class="row mt-4">
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">User Management</h5>
-            <p class="card-text">Manage user accounts, permissions, and access levels within the system.</p>
-            <a href="{% url 'admin:user_management' %}" class="btn btn-primary">Go</a>
+            <h5 class="card-title">Manage Departments</h5>
+            <p class="card-text">Add, edit, or remove departments.</p>
+            <a href="department_management.html" class="btn btn-primary">Manage Departments</a>
           </div>
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Facility Management</h5>
-            <p class="card-text">Manage healthcare facility details, including locations, departments, and resources.</p>
-            <a href="{% url 'admin:facility_management' %}" class="btn btn-primary">Go</a>
+            <h5 class="card-title">Manage Reports</h5>
+            <p class="card-text">Generate and view reports.</p>
+            <a href="report_management.html" class="btn btn-primary">Manage Reports</a>
           </div>
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Appointment Management</h5>
-            <p class="card-text">Schedule, coordinate, and manage appointments across departments and healthcare providers.</p>
-            <a href="{% url 'admin:appointment_management' %}" class="btn btn-primary">Go</a>
+            <h5 class="card-title">Manage Resources</h5>
+            <p class="card-text">Manage hospital resources.</p>
+            <a href="resource_management.html" class="btn btn-primary">Manage Resources</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

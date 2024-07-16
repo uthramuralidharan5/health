@@ -10,12 +10,12 @@ def doctor_dashboard(request):
 @login_required
 def patient_management(request):
     patients = Patient.objects.all()
-    return render(request, 'doctor/patient_management.html', {'patients': patients})
+    return render(request, 'patient_management.html', {'patients': patients})
 
 @login_required
 def appointment_schedule(request):
     appointments = Appointment.objects.filter(doctor=request.user)
-    return render(request, 'doctor/appointment_schedule.html', {'appointments': appointments})
+    return render(request, 'appointment_schedule.html', {'appointments': appointments})
 
 @login_required
 def e_prescribing(request, patient_id):
@@ -30,9 +30,5 @@ def e_prescribing(request, patient_id):
             return redirect('doctor_appointment_schedule')
     else:
         form = PrescriptionForm()
-    return render(request, 'doctor/e_prescribing.html', {'form': form, 'patient': patient})
+    return render(request, 'e_prescribing.html', {'form': form, 'patient': patient})
 
-@login_required
-def view_appointment(request, appointment_id):
-    appointment = Appointment.objects.get(id=appointment_id)
-    return render(request, 'doctor/view_appointment.html', {'appointment': appointment})
