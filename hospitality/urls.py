@@ -6,9 +6,9 @@ from Patient import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('patient/', include('Patient.urls')),
-    path('admin/', include('Admin.urls')),
-    path('doctor/', include('Doctor.urls')),
+    path('', include('Patient.urls')),
+    path('', include('Admin.urls')),
+    path('', include('Doctor.urls')),
 ]
 
 
